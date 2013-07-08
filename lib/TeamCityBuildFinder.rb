@@ -9,11 +9,11 @@ module TeamCityBuildFinder
     opt :tc_password, "Teamcity password", :type => :string
     opt :tc_url, "Teamcity base url: e.q. http://teamcity/", :type => :string
     opt :build_type_id, "Teamcity build type", :type => :string
-    opt :branch_name, "Teamcity branch name", :type => :string , :default => "master"
+    opt :branch_name, "Teamcity branch name", :type => :string , :default => ""
   end
 
   buildFinder =  TeamCityBuildFinder::BuildFinder.new(opts)
   build = buildFinder.getLatestBuild(opts[:build_type_id], opts[:branch_name])
 
-  puts build
+  puts build["number"]
 end

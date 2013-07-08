@@ -6,7 +6,7 @@ module TeamCityBuildFinder
 
   class BuildRepository
 
-    TC_API_PATH = '/httpAuth/app/rest/builds?locator=branch:'
+    TC_API_PATH = '/httpAuth/app/rest/builds?locator=status:SUCCESS,branch:'
 
     def initialize(options = {})
       @environment = options[:environment] ? options[:environment] : TeamCityBuildFinder::Environment.new
